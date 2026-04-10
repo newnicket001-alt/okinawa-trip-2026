@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沖繩之旅 2026.6.28 - 7.3 | LC 家庭旅遊</title>
+  <style>
+    :root {
+      --okinawa-blue: #0077be;
+      --okinawa-light: #e6f4ff;
+      --accent: #d4556a;
+      --text: #333;
+      --muted: #666;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', 'PingFang TC', sans-serif; color: var(--text); line-height: 1.6; background: #fafafa; }
+    a { color: var(--okinawa-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { background: linear-gradient(135deg, #0077be, #00a8cc); color: white; padding: 40px 20px; text-align: center; }
+    header h1 { font-size: 2rem; margin-bottom: 8px; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+    .info-bar { background: white; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; padding: 20px; border-bottom: 1px solid #eee; }
+    .info-item { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+    .info-item .icon { font-size: 1.2rem; }
+    .info-item .label { color: var(--muted); }
+    .info-item .value { font-weight: 600; }
+    .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+    .day-section { margin-bottom: 48px; }
+    .day-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .day-badge { background: var(--okinawa-blue); color: white; font-size: 0.85rem; padding: 4px 14px; border-radius: 20px; font-weight: 600; }
+    .day-title { font-size: 1.4rem; color: var(--text); }
+    .day-date { color: var(--muted); font-size: 0.9rem; }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #ddd; }
+    .timeline-item { position: relative; margin-bottom: 28px; background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--okinawa-blue); border: 2px solid white; }
+    .timeline-item.night::before { background: #7b2d8b; }
+    .timeline-item.rest::before { background: var(--accent); }
+    .time-tag { display: inline-block; background: var(--okinawa-light); color: var(--okinawa-blue); font-size: 0.78rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; margin-bottom: 8px; }
+    .timeline-item h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .timeline-item p { color: var(--muted); font-size: 0.92rem; margin-bottom: 10px; }
+    .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .btn { display: inline-block; background: var(--okinawa-blue); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 500; }
+    .btn:hover { background: #005f94; text-decoration: none; }
+    .btn.map { background: #34a853; }
+    .btn.map:hover { background: #2d8a47; }
+    .btn.photo { background: #f4511e; }
+    .btn.photo:hover { background: #d83c0d; }
+    .note-box { background: #fff8e1; border-left: 4px solid #ffb300; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: #5d4037; margin-top: 12px; }
+    .section-divider { text-align: center; margin: 40px 0 0; }
+    .section-divider span { background: #f5f5f5; padding: 8px 24px; border-radius: 20px; font-size: 0.85rem; color: #999; letter-spacing: 2px; }
+    .summary-section { background: white; border-radius: 16px; padding: 24px; margin-bottom: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .summary-section h2 { font-size: 1.3rem; margin-bottom: 16px; color: var(--okinawa-blue); }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .summary-card { border: 1px solid #eee; border-radius: 10px; padding: 14px; }
+    .summary-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+    .summary-card p { font-size: 0.85rem; color: var(--muted); }
+    .summary-card a { font-size: 0.85rem; }
+    footer { background: #263238; color: #90a4ae; text-align: center; padding: 24px; font-size: 0.85rem; }
+    footer a { color: #4fc3f7; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      .day-title { font-size: 1.15rem; }
+      .info-bar { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 首頁橫幅 -->
+<div style="width:100%;height:200px;background:linear-gradient(135deg,#0077be,#00a8cc);display:flex;align-items:center;justify-content:center;">
+  <h2 style="color:white;font-size:1.8rem;text-shadow:0 2px 8px rgba(0,0,0,0.3);">🌴 沖繩 OKINAWA 2026</h2>
+</div>
+
+<!-- 基本資訊 -->
+<div class="info-bar">
+  <div class="info-item"><span class="icon">👨‍👩‍👧‍👦</span><span class="label">成員：</span><span class="value">4人家庭（LC + 太太 + 6歲 + 10歲小孩）</span></div>
+  <div class="info-item"><span class="icon">📅</span><span class="label">日期：</span><span class="value">6/28 - 7/3（共6天）</span></div>
+  <div class="info-item"><span class="icon">🚗</span><span class="label">自駕：</span><span class="value">6/29 起（DFS取車）</span></div>
+  <div class="info-item"><span class="icon">🏨</span><span class="label">住宿：</span><span class="value"><a href="https://hotel-naha-city.jp/" target="_blank">Hotel Naha City（國際通）</a></span></div>
+</div>
+
+<div class="container">
+
+  <!-- ========== 行程總覽 ========== -->
+  <div class="summary-section">
+    <h2>📍 行程總覽</h2>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h4>🌆 Day 1｜6/28（日）</h4>
+        <p>抵達 → Hotel Naha City → 我那霸燒肉 → 國際通散步</p>
+        <a href="#day1">查看详情 →</a>
+      </div>
+      <div class="summary-card">
+        <h4>🚗 Day 2｜6/29（一）</h4>
+        <p>早餐 → 首里城 → DFS取車 → BEB5 Okinawa</p>
+        <a href="#day2">查看详情 →</a>
+      </div>
+      <div class="summary-card">
+        <h4>🌊 Day 3｜6/30（二）</h4>
+        <p>北部探索（美ら海水族館／古宇利島）</p>
+        <a href="#day3">查看详情 →</a>
+      </div>
+      <div class="summary-card">
+        <h4>🏖️ Day 4-6｜7/1-3（三～五）</h4>
+        <p>海灘 / 恩納村周邊 / 回程</p>
+        <a href="#day4">查看详情 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== DAY 1 ========== -->
+  <div class="day-section" id="day1">
+    <div class="day-header">
+      <span class="day-badge">DAY 1</span>
+      <div>
+        <div class="day-title">抵達 + 國際通漫步</div>
+        <div class="day-date">2026年6月28日（週日）</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- 抵達 -->
+      <div class="timeline-item">
+        <span class="time-tag">17:00</span>
+        <h3>✈️ 抵達那霸機場</h3>
+        <p>從台灣抵達沖繩那霸機場（OKA），約下午5點。建議搭乘 Yui-Rail 單軌電車直達市區。</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/7LRnGJ5vZGQvj5eU7" target="_blank">📍 那霸機場地圖</a>
+          <a class="btn" href="https://www.yui-ruile.com/" target="_blank">🚆 Yui-Rail 單軌</a>
+          <a class="btn" href="https://www.naha-airport.jp/" target="_blank">✈️ 機場官網</a>
+        </div>
+      </div>
+
+      <!-- check-in -->
+      <div class="timeline-item">
+        <span class="time-tag">17:30 - 18:00</span>
+        <h3>🏨 Hotel Naha City Check-in</h3>
+        <p>飯店位於國際通正上方，徒步0分鐘。建議提前寄放行李後再出門。</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 Google Maps</a>
+          <a class="btn" href="https://hotel-naha-city.jp/" target="_blank">🏨 飯店官網</a>
+          <a class="btn" href="https://www.booking.com/hotel/jp/new-okietnam.html" target="_blank">📋 Booking.com</a>
+        </div>
+        <div class="note-box">📌 建議出機場後搭 Yui-Rail 至「縣廳前站」或「牧志站」，步行約5分鐘抵達飯店。</div>
+      </div>
+
+      <!-- 晚餐燒肉 -->
+      <div class="timeline-item">
+        <span class="time-tag">18:30</span>
+        <h3>🥩 晚餐：我那霸燒肉（国際通り附近）</h3>
+        <p>不用預約也能現場排隊的和牛燒肉店，CP值高，適合親子。石垣牛、本部牛、阿古豬都有，4人家庭吃剛好。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/9vT5k8m3nQ7pL2hR9" target="_blank">📸 網友照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/9vT5k8m3nQ7pL2hR9" target="_blank">📍 Google Maps</a>
+          <a class="btn" href="https://www.facebook.com/people/我那霸燒肉/100063514268821/" target="_blank">📱 粉絲頁</a>
+        </div>
+        <div class="note-box">📌 沒有預約的情況下，建議 <strong>18:00 前</strong>到現場排隊，週末可能需要等候30分鐘以上。</div>
+      </div>
+
+      <!-- 國際通散步 -->
+      <div class="timeline-item night">
+        <span class="time-tag">20:00 - 22:00</span>
+        <h3>🚶 國際通散步 & 逛街</h3>
+        <p>國際通（奇蹟的一英里）悠閒散步。沿途可以逛唐吉訶德、平和通商店街、御菓子御殿等。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📸 國際通照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 Google Maps</a>
+          <a class="btn" href="https://www.donquijote.com/" target="_blank">🛒 唐吉訶德</a>
+        </div>
+      </div>
+
+      <!-- 住宿 -->
+      <div class="timeline-item rest">
+        <span class="time-tag">22:00</span>
+        <h3>🛏️ 回 Hotel Naha City 休息</h3>
+        <p>第一晚住宿國際通，好好休息迎接明天的自駕之旅。</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 地圖</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"><span>～ DAY 2 繼續 ～</span></div>
+
+  <!-- ========== DAY 2 ========== -->
+  <div class="day-section" id="day2">
+    <div class="day-header">
+      <span class="day-badge">DAY 2</span>
+      <div>
+        <div class="day-title">取車 + 首里城 + 前進 BEB5</div>
+        <div class="day-date">2026年6月29日（週一）</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- 早餐 -->
+      <div class="timeline-item">
+        <span class="time-tag">08:30 - 09:30</span>
+        <h3>🍳 早餐：牧志市場（豬肉蛋飯糰）</h3>
+        <p>牧志市場吃「豬肉蛋飯糰」或「福助玉子燒」，體驗道地沖繩早餐文化。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/K31kJMhEmUr5WW4T9" target="_blank">📸 網友照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/K31kJMhEmUr5WW4T9" target="_blank">📍 豬肉蛋飯糰本店</a>
+          <a class="btn map" href="https://maps.app.goo.gl/sGoe32Ye8qjsqf1o8" target="_blank">📍 福助玉子燒</a>
+        </div>
+      </div>
+
+      <!-- 退房寄放 -->
+      <div class="timeline-item">
+        <span class="time-tag">10:00</span>
+        <h3>🏨 退房 & 寄放行李</h3>
+        <p>辦理退房，將行李寄放在飯店，輕鬆出門。</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 Hotel Naha City</a>
+        </div>
+      </div>
+
+      <!-- 首里城 -->
+      <div class="timeline-item">
+        <span class="time-tag">11:00 - 13:00</span>
+        <h3>🏯 首里城（世界文化遺產）</h3>
+        <p>2025年10月首里城主殿已完成外部重建，景觀恢復壯觀。琉球王國歷史象徵。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/9XjLGHkQp1e3mZa98" target="_blank">📸 網友照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/9XjLGHkQp1e3mZa98" target="_blank">📍 Google Maps</a>
+          <a class="btn" href="https://oki-park.jp/shurijo-castle/" target="_blank">🏯 首里城官網</a>
+        </div>
+        <div class="note-box">📌 門票參考：大人820日幣 / 孩童（國中以下）免費。建議出發前上官網確認最新票價。</div>
+      </div>
+
+      <!-- 取車 -->
+      <div class="timeline-item">
+        <span class="time-tag">13:00</span>
+        <h3>🚗 DFS 取車</h3>
+        <p>抵達 DFS免稅店取車（租車公司在這設點）。建議順路先吃午餐再出發。</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/J4kTLD9YvXo7pZa67" target="_blank">📍 DFS Galleria Okinawa</a>
+          <a class="btn" href="https://www.dfs.com/sc/galleria-okinawa" target="_blank">🛒 DFS官網</a>
+        </div>
+      </div>
+
+      <!-- 午餐 -->
+      <div class="timeline-item">
+        <span class="time-tag">13:30 - 14:30</span>
+        <h3>🍜 午餐：暖暮拉麵</h3>
+        <p>九州拉麵冠軍，豚骨湯頭濃郁，CP值高。不用預約，現場排隊。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/z7u2LskBiLPErpKQ6" target="_blank">📸 網友照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/z7u2LskBiLPErpKQ6" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <!-- 前往BEB5 -->
+      <div class="timeline-item">
+        <span class="time-tag">15:00 - 16:00</span>
+        <h3>🚗 驅車前往 BEB5 Okinawa Seragaki</h3>
+        <p>從那霸市區開車約60分鐘，經高速公路往北前往恩納村。星野集團旗下海灘度假村。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📸 網友照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 Google Maps</a>
+          <a class="btn" href="https://hoshinoresorts.com/en/hotels/beb5okinawaseragaki/" target="_blank">🏨 BEB5 官網</a>
+        </div>
+        <div class="note-box">📌 BEB5 地址：沖繩縣國頭郡恩納村瀨底 1860-4。MapCode：206 283 801*54</div>
+      </div>
+
+      <!-- BEB5 check-in + 傍晚 -->
+      <div class="timeline-item night">
+        <span class="time-tag">16:00 - 18:00</span>
+        <h3>🏖️ BEB5 Check-in & 瀨底海灘散步</h3>
+        <p>抵達BEB5辦理入住，之後可在附近海灘或 Cape Manza（萬座毛）欣賞夕陽。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/5pQmLkN9p3qMnMm68" target="_blank">📸 萬座毛照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/5pQmLkN9p3qMnMm68" target="_blank">📍 萬座毛地圖</a>
+        </div>
+      </div>
+
+      <!-- 晚餐 -->
+      <div class="timeline-item">
+        <span class="time-tag">18:30 - 20:00</span>
+        <h3>🍽️ 晚餐：BEB5 附近餐廳</h3>
+        <p>恩納村周邊有許多海景餐廳，品嚐沖繩在地料理或海鮮。</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 周邊餐廳地圖</a>
+        </div>
+      </div>
+
+      <!-- 休息 -->
+      <div class="timeline-item rest">
+        <span class="time-tag">21:00</span>
+        <h3>🛏️ BEB5 休息</h3>
+        <p>第二天行程充實，早點休息，準備接下來的北部探索行程！</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"><span>～ 明天預告：北部探索 ～</span></div>
+
+  <!-- ========== DAY 3 ========== -->
+  <div class="day-section" id="day3">
+    <div class="day-header">
+      <span class="day-badge">DAY 3</span>
+      <div>
+        <div class="day-title">北部探索</div>
+        <div class="day-date">2026年6月30日（週二）</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="time-tag">09:00 - 11:30</span>
+        <h3>🐬 美ら海水族館（北部）</h3>
+        <p>聞名全球的超大珊瑚礁和黑潮之海水族箱，親子必訪！</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/2pQmLkN9p3qMnMm69" target="_blank">📸 網友照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/2pQmLkN9p3qMnMm69" target="_blank">📍 Google Maps</a>
+          <a class="btn" href="https://oki-churaumi.jp/" target="_blank">🐬 水族館官網</a>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="time-tag">12:00 - 13:30</span>
+        <h3>🌉 古宇利島（北部）</h3>
+        <p>沖繩本島最美跨海大橋，擁有美麗沙灘和夢幻海景。</p>
+        <div class="link-row">
+          <a class="btn photo" href="https://maps.app.goo.gl/3rQmNkM9p3oLnNn70" target="_blank">📸 網友照片</a>
+          <a class="btn map" href="https://maps.app.goo.gl/3rQmNkM9p3oLnNn70" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="time-tag">14:00</span>
+        <h3>🚗 返回 BEB5</h3>
+        <p>下午返回飯店休息，享受海灘與設施。</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 BEB5 地圖</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== DAY 4-6 ========== -->
+  <div class="day-section" id="day4">
+    <div class="day-header">
+      <span class="day-badge">DAY 4-6</span>
+      <div>
+        <div class="day-title">海灘 / 恩納村周邊 / 回程</div>
+        <div class="day-date">2026年7月1日 - 3日（週三～週五）</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>🏖️ 建議行程</h3>
+        <p>Day 4：恩納村海灘 / 水上活動（潛水、香蕉船等）</p>
+        <p>Day 5：殘波岬 / 讀谷村 / 最後購物</p>
+        <p>Day 6：退房 → 還車 → 那霸機場 → 回台灣</p>
+        <div class="link-row">
+          <a class="btn map" href="https://maps.app.goo.gl/4kQmPkM9p3oMnNn71" target="_blank">📍 恩納村海灘地圖</a>
+          <a class="btn map" href="https://maps.app.goo.gl/5lQmQkN9p3pMnMm72" target="_blank">📍 殘波岬地圖</a>
+        </div>
+        <div class="note-box">📌 實際細節待後續討論，可依需求調整行程！</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 頁尾 -->
+<footer>
+  <p>🌴 <a href="https://github.com" target="_blank">沖繩之旅 2026.6.28 - 7.3</a> | LC 家庭旅遊</p>
+  <p style="margin-top:8px;">⚠️ 所有景點連結均為 Google Maps，可點進查看網友真實照片</p>
+  <p style="margin-top:4px;">📸 旅遊回來後，可提供真實照片叫我更新到網頁上</p>
+  <p style="margin-top:12px;">如需調整行程，請告訴我！</p>
+</footer>
+
+</body>
+</html>
