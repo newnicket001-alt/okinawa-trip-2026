@@ -3,624 +3,1014 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>沖繩之旅 2026.6.28 - 7.3 | LC 家庭旅遊</title>
+  <title>沖繩 OKINAWA 2026 | LC Family Trip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --okinawa-blue: #0077be;
-      --okinawa-light: #e6f4ff;
-      --accent: #d4556a;
-      --text: #333;
-      --muted: #666;
-      --backup: #7b2d8b;
+      --primary: #00695c;
+      --primary-light: #e0f2f1;
+      --accent: #ff6f00;
+      --accent-light: #fff3e0;
+      --dark: #1a1a2e;
+      --gray: #5f6368;
+      --light-gray: #f5f5f5;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', 'PingFang TC', sans-serif; color: var(--text); line-height: 1.6; background: #fafafa; }
-    a { color: var(--okinawa-blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header { background: linear-gradient(135deg, #0077be, #00a8cc); color: white; padding: 40px 20px; text-align: center; }
-    header h1 { font-size: 2rem; margin-bottom: 8px; }
-    header p { font-size: 1.1rem; opacity: 0.9; }
-    .info-bar { background: white; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; padding: 20px; border-bottom: 1px solid #eee; }
-    .info-item { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
-    .info-item .icon { font-size: 1.2rem; }
-    .info-item .label { color: var(--muted); }
-    .info-item .value { font-weight: 600; }
-    .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
-    .day-section { margin-bottom: 48px; }
-    .day-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-    .day-badge { background: var(--okinawa-blue); color: white; font-size: 0.85rem; padding: 4px 14px; border-radius: 20px; font-weight: 600; }
-    .day-badge.backup { background: var(--backup); }
-    .day-title { font-size: 1.4rem; color: var(--text); }
-    .day-date { color: var(--muted); font-size: 0.9rem; }
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #ddd; }
-    .timeline-item { position: relative; margin-bottom: 28px; background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--okinawa-blue); border: 2px solid white; }
-    .timeline-item.night::before { background: #7b2d8b; }
-    .timeline-item.rest::before { background: var(--accent); }
-    .timeline-item.backup::before { background: var(--backup); }
-    .time-tag { display: inline-block; background: var(--okinawa-light); color: var(--okinawa-blue); font-size: 0.78rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; margin-bottom: 8px; }
-    .time-tag.backup { background: #f3e5f5; color: var(--backup); }
-    .timeline-item h3 { font-size: 1.1rem; margin-bottom: 6px; }
-    .timeline-item p { color: var(--muted); font-size: 0.92rem; margin-bottom: 10px; }
-    .spot-photo { width: 100%; max-width: 600px; border-radius: 10px; margin: 10px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; }
-    .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .btn { display: inline-block; background: var(--okinawa-blue); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 500; }
-    .btn:hover { background: #005f94; text-decoration: none; }
-    .btn.map { background: #34a853; }
-    .btn.map:hover { background: #2d8a47; }
-    .btn.photo { background: #f4511e; }
-    .btn.photo:hover { background: #d83c0d; }
-    .btn.backup { background: var(--backup); }
-    .btn.backup:hover { background: #5a1a6b; }
-    .note-box { background: #fff8e1; border-left: 4px solid #ffb300; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: #5d4037; margin-top: 12px; }
-    .backup-box { background: #f3e5f5; border-left: 4px solid var(--backup); padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 0.9rem; margin-top: 12px; }
-    .section-divider { text-align: center; margin: 40px 0 0; }
-    .section-divider span { background: #f5f5f5; padding: 8px 24px; border-radius: 20px; font-size: 0.85rem; color: #999; letter-spacing: 2px; }
-    .summary-section { background: white; border-radius: 16px; padding: 24px; margin-bottom: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-    .summary-section h2 { font-size: 1.3rem; margin-bottom: 16px; color: var(--okinawa-blue); }
-    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .summary-card { border: 1px solid #eee; border-radius: 10px; padding: 14px; }
-    .summary-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
-    .summary-card p { font-size: 0.85rem; color: var(--muted); }
-    .summary-card a { font-size: 0.85rem; }
-    .group-info { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
-    .group-info h3 { font-size: 1rem; color: #2e7d32; margin-bottom: 8px; }
-    .group-info p { font-size: 0.9rem; color: #388e3c; }
-    .img-credit { font-size: 0.72rem; color: #999; margin-top: 4px; text-align: right; }
-    footer { background: #263238; color: #90a4ae; text-align: center; padding: 24px; font-size: 0.85rem; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark);
+      line-height: 1.7;
+      background: var(--light-gray);
+    }
+    .hero {
+      height: 70vh;
+      min-height: 500px;
+      background: linear-gradient(135deg, #00695c 0%, #00897b 50%, #26a69a 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1548013146-72479768bada?w=1920&q=80') center/cover;
+      opacity: 0.3;
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 40px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .hero-subtitle {
+      font-size: 1.4rem;
+      opacity: 0.95;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+    .hero-meta-item span { opacity: 0.9; }
+    
+    /* Info Bar */
+    .info-bar {
+      background: white;
+      padding: 32px;
+      margin: -40px auto 40px;
+      max-width: 1000px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+    }
+    .info-item .icon {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .info-item .label {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    .info-item .value {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray);
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+    }
+
+    /* Trip Card */
+    .trip-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 48px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .trip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .trip-card-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .trip-day-badge {
+      width: 64px;
+      height: 64px;
+      background: var(--primary);
+      color: white;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trip-day-badge .day {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .trip-day-badge .date {
+      font-size: 0.7rem;
+      opacity: 0.85;
+    }
+    .trip-card-title h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .trip-card-title .subtitle {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    .trip-card-body {
+      padding: 24px 32px 32px;
+    }
+
+    /* Schedule Items */
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .schedule-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .time {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      padding-top: 4px;
+    }
+    .schedule-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .schedule-content p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .schedule-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--light-gray);
+      color: var(--gray);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    .tag.map { background: #e8f5e9; color: #2e7d32; }
+    .tag.photo { background: #fff3e0; color: #e65100; }
+    .tag.info { background: #e3f2fd; color: #1565c0; }
+
+    /* Food Gallery */
+    .food-gallery {
+      background: linear-gradient(135deg, #fff8e1, #fffde7);
+      padding: 32px;
+      border-radius: 16px;
+      margin-top: 20px;
+    }
+    .food-gallery h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .food-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .food-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+    .food-item-info {
+      padding: 10px 12px;
+    }
+    .food-item-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .food-item-desc {
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+
+    /* Map Section */
+    .map-container {
+      margin-top: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .map-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Action Buttons */
+    .action-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover { background: #004d40; }
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-accent:hover { background: #e65100; }
+    .btn-outline {
+      background: white;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary-light); }
+
+    /* Group Info */
+    .group-banner {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      padding: 24px 32px;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .group-banner-icon {
+      width: 56px;
+      height: 56px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .group-banner h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .group-banner p { font-size: 0.9rem; color: #2e7d32; }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 40px 24px;
+      margin-top: 60px;
+    }
+    footer p { margin-bottom: 8px; }
     footer a { color: #4fc3f7; }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.5rem; }
-      .day-title { font-size: 1.15rem; }
-      .info-bar { gap: 12px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero-meta { gap: 16px; }
+      .info-bar { margin: -30px 16px 30px; padding: 24px; }
+      .schedule-item { grid-template-columns: 1fr; gap: 8px; }
+      .time { color: var(--primary); font-weight: 600; }
+      .trip-card-header { padding: 20px; flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- 首頁橫幅 -->
-<div style="width:100%;height:220px;background:linear-gradient(135deg,#0077be,#00a8cc);display:flex;align-items:center;justify-content:center;flex-direction:column;">
-  <h1 style="color:white;font-size:2rem;margin-bottom:8px;">🌴 沖繩 OKINAWA 2026</h1>
-  <p style="color:white;opacity:0.9;font-size:1.1rem;">LC 家庭旅遊 | 6天5夜</p>
-</div>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">2026 年 6 月 28 日 - 7 月 3 日</div>
+    <h1>🌴 沖繩 OKINAWA</h1>
+    <p class="hero-subtitle">LC 家庭旅遊 · 6 天 5 夜</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📍 4 人家庭（含 6 歲 + 10 歲小孩）</div>
+      <div class="hero-meta-item">🚗 6/29 起自駕</div>
+      <div class="hero-meta-item">🏨 Hotel Naha City + BEB5</div>
+    </div>
+  </div>
+</section>
 
-<!-- 基本資訊 -->
+<!-- Info Bar -->
 <div class="info-bar">
-  <div class="info-item"><span class="icon">👨‍👩‍👧‍👦</span><span class="label">成員：</span><span class="value">4人家庭（LC + 太太 + 6歲 + 10歲小孩）</span></div>
-  <div class="info-item"><span class="icon">📅</span><span class="label">日期：</span><span class="value">6/28 - 7/3（共6天）</span></div>
-  <div class="info-item"><span class="icon">🚗</span><span class="label">自駕：</span><span class="value">6/29 起（DFS取車）</span></div>
-  <div class="info-item"><span class="icon">🏨</span><span class="label">住宿：</span><span class="value"><a href="https://hotel-naha-city.jp/" target="_blank">Hotel Naha City（國際通）</a></span></div>
+  <div class="info-item">
+    <div class="icon">👨‍👩‍👧‍👦</div>
+    <div>
+      <div class="label">揪團人數</div>
+      <div class="value">16 人（含小朋友 4-11 歲）</div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="icon">📅</div>
+    <div>
+      <div class="label">出發日期</div>
+      <div class="value">2026.6.28 - 7.3</div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="icon">🚗</div>
+    <div>
+      <div class="label">交通方式</div>
+      <div class="value">6/29 起租車自駕</div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="icon">🏨</div>
+    <div>
+      <div class="label">住宿</div>
+      <div class="value">Hotel Naha City + BEB5</div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
 
-  <!-- 揪團資訊 -->
-  <div class="group-info">
-    <h3>👥 揪團資訊</h3>
-    <p>共 <strong>16人</strong> 報名（含小朋友），年齡分布 <strong>4-11歲</strong>。</p>
-    <p style="margin-top:6px;">Day 3 青洞浮潛已列為主要行程，需提前預約店家。</p>
-  </div>
-
-  <!-- 行程總覽 -->
-  <div class="summary-section">
-    <h2>📍 行程總覽</h2>
-    <div class="summary-grid">
-      <div class="summary-card"><h4>🌆 Day 1｜6/28（日）</h4><p>抵達 → Hotel Naha City → 我那霸燒肉 → 國際通散步</p><a href="#day1">查看详情 →</a></div>
-      <div class="summary-card"><h4>🚗 Day 2｜6/29（一）</h4><p>早餐 → 首里城 → DFS取車 → BEB5 Okinawa</p><a href="#day2">查看详情 →</a></div>
-      <div class="summary-card"><h4>🌊 Day 3｜6/30（二）</h4><p>中城公園 → 青洞浮潛 → 美ら海水族館</p><a href="#day3">查看详情 →</a></div>
-      <div class="summary-card"><h4>🏖️ Day 4｜7/1（三）</h4><p>海灘活動 → 浦添大公園（超長溜滑梯）</p><a href="#day4">查看详情 →</a></div>
-      <div class="summary-card"><h4>🎡 Day 5｜7/2（四）</h4><p>平和祈念公園（新設施）→ 南部景點</p><a href="#day5">查看详情 →</a></div>
-      <div class="summary-card"><h4>✈️ Day 6｜7/3（五）</h4><p>退房 → 還車 → 那霸機場 → 回台灣</p><a href="#day6">查看详情 →</a></div>
+  <!-- Group Banner -->
+  <div class="group-banner">
+    <div class="group-banner-icon">👥</div>
+    <div>
+      <h3>揪團資訊</h3>
+      <p>共 16 人報名！Day 3 青洞浮潛需提前預約店家，16 人可包團。</p>
     </div>
   </div>
 
   <!-- ========== DAY 1 ========== -->
-  <div class="day-section" id="day1">
-    <div class="day-header">
-      <span class="day-badge">DAY 1</span>
-      <div><div class="day-title">抵達 + 國際通漫步</div><div class="day-date">2026年6月28日（週日）</div></div>
+  <div class="trip-card" id="day1">
+    <div class="trip-card-header">
+      <div class="trip-day-badge">
+        <span class="day">DAY</span>
+        <span class="day">1</span>
+        <span class="date">6/28</span>
+      </div>
+      <div class="trip-card-title">
+        <h2>🌆 抵達 + 國際通漫步</h2>
+        <p class="subtitle">週日 · 下午抵達，入住國際通</p>
+      </div>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <span class="time-tag">17:00</span>
-        <h3>✈️ 抵達那霸機場</h3>
-        <p>從台灣抵達沖繩那霸機場（OKA），約下午5點。建議搭乘 Yui-Rail 單軌電車直達市區。</p>
-        <div class="link-row">
-          <a class="btn map" href="https://maps.app.goo.gl/7LRnGJ5vZGQvj5eU7" target="_blank">📍 那霸機場地圖</a>
-          <a class="btn" href="https://www.yui-ruile.com/" target="_blank">🚆 Yui-Rail 單軌</a>
+    <div class="trip-card-body">
+      <div class="schedule-item">
+        <div class="time">17:00</div>
+        <div class="schedule-content">
+          <h3>✈️ 抵達那霸機場</h3>
+          <p>從台灣抵達沖繩那霸機場（OKA），建議搭乘 Yui-Rail 單軌電車直達市區。</p>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/7LRnGJ5vZGQvj5eU7" target="_blank">📍 地圖</a>
+            <a class="btn btn-primary" href="https://www.yui-ruile.com/" target="_blank">🚆 Yui-Rail</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">17:30 - 18:00</span>
-        <h3>🏨 Hotel Naha City Check-in</h3>
-        <p>飯店位於國際通正上方，徒步0分鐘。建議提前寄放行李後再出門。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-hotel.png" alt="Hotel Naha City">
-        <p class="img-credit">📷 OpenStreetMap（Hotel Naha City 附近）</p>
-        <div class="link-row">
-          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 Google Maps</a>
-          <a class="btn" href="https://hotel-naha-city.jp/" target="_blank">🏨 飯店官網</a>
+      <div class="schedule-item">
+        <div class="time">17:30</div>
+        <div class="schedule-content">
+          <h3>🏨 Hotel Naha City Check-in</h3>
+          <p>飯店位於國際通正上方，徒步 0 分鐘。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-hotel.png" alt="Hotel Naha City">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 地圖</a>
+            <a class="btn btn-primary" href="https://hotel-naha-city.jp/" target="_blank">🏨 官網</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">18:30</span>
-        <h3>🥩 晚餐：我那霸燒肉（国際通り附近）</h3>
-        <p>不用預約也能現場排隊的和牛燒肉店，CP值高，適合親子。石垣牛、本部牛、阿古豬都有，4人家庭吃剛好。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-wannahabi.png" alt="我那霸燒肉">
-        <p class="img-credit">📷 OpenStreetMap（我那霸燒肉）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/9vT5k8m3nQ7pL2hR9" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/9vT5k8m3nQ7pL2hR9" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">18:30</div>
+        <div class="schedule-content">
+          <h3>🥩 晚餐：我那霸燒肉</h3>
+          <p>不用預約也能現場排隊的和牛燒肉店，CP值高，適合親子。石垣牛、本部牛、阿古豬都有。</p>
+          <div class="food-gallery">
+            <h4>🍖 推薦招牌菜</h4>
+            <div class="food-grid">
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" alt="石垣牛">
+                <div class="food-item-info">
+                  <div class="food-item-name">🥩 石垣牛</div>
+                  <div class="food-item-desc">精選和牛</div>
+                </div>
+              </div>
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80" alt="本部牛">
+                <div class="food-item-info">
+                  <div class="food-item-name">🐷 本部牛</div>
+                  <div class="food-item-desc">沖繩品牌牛</div>
+                </div>
+              </div>
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&q=80" alt="阿古豬">
+                <div class="food-item-info">
+                  <div class="food-item-name">🐖 阿古豬</div>
+                  <div class="food-item-desc">沖繩第一名豬</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-container" style="margin-top:16px;">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-wannahabi.png" alt="我那霸燒肉">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/9vT5k8m3nQ7pL2hR9" target="_blank">📍 地圖</a>
+            <a class="btn btn-accent" href="https://www.ganaha-butaniku.co.jp/honten" target="_blank">🌐 官網</a>
+          </div>
         </div>
-        <div class="note-box">📌 建議 <strong>18:00 前</strong>到現場排隊，週末可能需要等候30分鐘以上。</div>
       </div>
-
-      <div class="timeline-item night">
-        <span class="time-tag">20:00 - 22:00</span>
-        <h3>🚶 國際通散步 & 逛街</h3>
-        <p>國際通（奇蹟的一英里）悠閒散步。沿途可以逛唐吉訶德、平和通商店街、御菓子御殿等。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-kokusai.png" alt="國際通">
-        <p class="img-credit">📷 OpenStreetMap（國際通）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 Google Maps</a>
-          <a class="btn" href="https://www.donquijote.com/" target="_blank">🛒 唐吉訶德</a>
+      <div class="schedule-item">
+        <div class="time">20:00</div>
+        <div class="schedule-content">
+          <h3>🚶 國際通散步 & 逛街</h3>
+          <p>國際通（奇蹟的一英里）悠閒散步。沿途可以逛唐吉訶德、平和通商店街、御菓子御殿等。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-kokusai.png" alt="國際通">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 地圖</a>
+            <a class="btn btn-primary" href="https://www.donquijote.com/" target="_blank">🛒 唐吉訶德</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item rest">
-        <span class="time-tag">22:00</span>
-        <h3>🛏️ 回 Hotel Naha City 休息</h3>
-        <p>好好休息迎接明天的自駕之旅。</p>
+      <div class="schedule-item">
+        <div class="time">22:00</div>
+        <div class="schedule-content">
+          <h3>🛏️ 回 Hotel Naha City 休息</h3>
+        </div>
       </div>
-
     </div>
   </div>
-
-  <div class="section-divider"><span>～ DAY 2 繼續 ～</span></div>
 
   <!-- ========== DAY 2 ========== -->
-  <div class="day-section" id="day2">
-    <div class="day-header">
-      <span class="day-badge">DAY 2</span>
-      <div><div class="day-title">取車 + 首里城 + 前進 BEB5</div><div class="day-date">2026年6月29日（週一）</div></div>
+  <div class="trip-card" id="day2">
+    <div class="trip-card-header">
+      <div class="trip-day-badge">
+        <span class="day">DAY</span>
+        <span class="day">2</span>
+        <span class="date">6/29</span>
+      </div>
+      <div class="trip-card-title">
+        <h2>🚗 取車 + 首里城 + 前進 BEB5</h2>
+        <p class="subtitle">週一 · 自駕出發，前往恩納村</p>
+      </div>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <span class="time-tag">08:30 - 09:30</span>
-        <h3>🍳 早餐：牧志市場（豬肉蛋飯糰）</h3>
-        <p>牧志市場吃「豬肉蛋飯糰」或「福助玉子燒」，體驗道地沖繩早餐文化。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-makishi.png" alt="牧志市場">
-        <p class="img-credit">📷 OpenStreetMap（牧志市場）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/K31kJMhEmUr5WW4T9" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/K31kJMhEmUr5WW4T9" target="_blank">📍 豬肉蛋飯糰本店</a>
+    <div class="trip-card-body">
+      <div class="schedule-item">
+        <div class="time">08:30</div>
+        <div class="schedule-content">
+          <h3>🍳 早餐：牧志市場（豬肉蛋飯糰）</h3>
+          <p>體驗道地沖繩早餐文化。</p>
+          <div class="food-gallery">
+            <h4>🍳 推薦早餐</h4>
+            <div class="food-grid">
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=400&q=80" alt="豬肉蛋飯糰">
+                <div class="food-item-info">
+                  <div class="food-item-name">🍙 豬肉蛋飯糰</div>
+                  <div class="food-item-desc">在地人氣 No.1</div>
+                </div>
+              </div>
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&q=80" alt="玉子燒">
+                <div class="food-item-info">
+                  <div class="food-item-name">🍳 福助玉子燒</div>
+                  <div class="food-item-desc">70年老店</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-container" style="margin-top:16px;">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-makishi.png" alt="牧志市場">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/K31kJMhEmUr5WW4T9" target="_blank">📍 豬肉蛋飯糰</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">10:00 - 11:30</span>
-        <h3>🏯 首里城（世界文化遺產）</h3>
-        <p>2025年10月首里城主殿已完成外部重建，景觀恢復壯觀。琉球王國歷史象徵。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-shuri.png" alt="首里城">
-        <p class="img-credit">📷 OpenStreetMap（首里城）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/9XjLGHkQp1e3mZa98" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/9XjLGHkQp1e3mZa98" target="_blank">📍 Google Maps</a>
-          <a class="btn" href="https://oki-park.jp/shurijo-castle/" target="_blank">🏯 首里城官網</a>
-        </div>
-        <div class="note-box">📌 門票參考：大人820日幣 / 孩童（國中以下）免費。建議出發前上官網確認最新票價。</div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">12:00 - 13:00</span>
-        <h3>🍜 午餐：暖暮拉麵（縣廳前站附近）</h3>
-        <p>九州拉麵冠軍，豚骨湯頭濃郁，CP值高。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-danbo.png" alt="暖暮拉麵">
-        <p class="img-credit">📷 OpenStreetMap（暖暮拉麵）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/z7u2LskBiLPErpKQ6" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/z7u2LskBiLPErpKQ6" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">10:00</div>
+        <div class="schedule-content">
+          <h3>🏯 首里城（世界文化遺產）</h3>
+          <p>2025年10月首里城主殿已完成外部重建，景觀恢復壯觀。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-shuri.png" alt="首里城">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/9XjLGHkQp1e3mZa98" target="_blank">📍 地圖</a>
+            <a class="btn btn-primary" href="https://oki-park.jp/shurijo-castle/" target="_blank">🏯 官網</a>
+          </div>
+          <div class="tag" style="margin-top:8px;">🎫 門票：大人 820日幣 / 孩童免費</div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">13:30</span>
-        <h3>🚗 DFS 取車</h3>
-        <p>抵達 DFS免稅店取車（租車公司在這設點）。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-dfs.png" alt="DFS">
-        <p class="img-credit">📷 OpenStreetMap（DFS Galleria）</p>
-        <div class="link-row">
-          <a class="btn map" href="https://maps.app.goo.gl/J4kTLD9YvXo7pZa67" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">12:00</div>
+        <div class="schedule-content">
+          <h3>🍜 午餐：暖暮拉麵</h3>
+          <p>九州拉麵冠軍，豚骨湯頭濃郁，CP值高。</p>
+          <div class="food-gallery">
+            <h4>🍜 人氣拉麵</h4>
+            <div class="food-grid">
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1557872943-16a5a41fa4c7?w=400&q=80" alt="豚骨拉麵">
+                <div class="food-item-info">
+                  <div class="food-item-name">🍜 豚骨拉麵</div>
+                  <div class="food-item-desc">九州冠軍</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-container" style="margin-top:16px;">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-danbo.png" alt="暖暮拉麵">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/z7u2LskBiLPErpKQ6" target="_blank">📍 地圖</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">15:00 - 16:00</span>
-        <h3>🚗 驅車前往 BEB5 Okinawa Seragaki</h3>
-        <p>從那霸市區開車約60分鐘，經高速公路往北前往恩納村。星野集團旗下海灘度假村。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-beb5.png" alt="BEB5">
-        <p class="img-credit">📷 OpenStreetMap（BEB5 Okinawa）</p>
-        <div class="link-row">
-          <a class="btn map" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 Google Maps</a>
-          <a class="btn" href="https://hoshinoresorts.com/en/hotels/beb5okinawaseragaki/" target="_blank">🏨 BEB5 官網</a>
+      <div class="schedule-item">
+        <div class="time">13:30</div>
+        <div class="schedule-content">
+          <h3>🚗 DFS 取車</h3>
+          <p>抵達 DFS 免稅店取車。</p>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/J4kTLD9YvXo7pZa67" target="_blank">📍 DFS 地圖</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item night">
-        <span class="time-tag">16:00 - 18:00</span>
-        <h3>🏖️ BEB5 Check-in & 萬座毛欣賞夕陽</h3>
-        <p>抵達BEB5辦理入住，之後驅車前往萬座毛欣賞夕陽。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-manzamo.png" alt="萬座毛">
-        <p class="img-credit">📷 OpenStreetMap（萬座毛）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/5pQmLkN9p3qMnMm68" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/5pQmLkN9p3qMnMm68" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">15:00</div>
+        <div class="schedule-content">
+          <h3>🚗 驅車前往 BEB5 Okinawa Seragaki</h3>
+          <p>從那霸市區開車約 60 分鐘，星野集團旗下海灘度假村。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-beb5.png" alt="BEB5">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 地圖</a>
+            <a class="btn btn-primary" href="https://hoshinoresorts.com/en/hotels/beb5okinawaseragaki/" target="_blank">🏨 官網</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">18:30 - 20:00</span>
-        <h3>🍽️ 晚餐：BEB5 附近餐廳</h3>
-        <p>恩納村周邊有許多海景餐廳，品嚐沖繩在地料理或海鮮。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-manzamo.png" alt="恩納村周邊">
-        <p class="img-credit">📷 OpenStreetMap（恩納村周邊餐廳）</p>
-        <div class="link-row">
-          <a class="btn map" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 餐廳地圖</a>
+      <div class="schedule-item">
+        <div class="time">16:00</div>
+        <div class="schedule-content">
+          <h3>🏖️ 萬座毛欣賞夕陽</h3>
+          <p>沖繩經典夕陽景點，象鼻岩石是打卡點。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-manzamo.png" alt="萬座毛">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/5pQmLkN9p3qMnMm68" target="_blank">📍 地圖</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item rest">
-        <span class="time-tag">21:00</span>
-        <h3>🛏️ BEB5 休息</h3>
-        <p>第二天行程充實，早點休息！</p>
+      <div class="schedule-item">
+        <div class="time">18:30</div>
+        <div class="schedule-content">
+          <h3>🍽️ 晚餐：BEB5 附近餐廳</h3>
+          <p>恩納村周邊有許多海景餐廳。</p>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 餐廳地圖</a>
+          </div>
+        </div>
       </div>
-
+      <div class="schedule-item">
+        <div class="time">21:00</div>
+        <div class="schedule-content">
+          <h3>🛏️ BEB5 休息</h3>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="section-divider"><span>～ DAY 3 北部探索 ～</span></div>
 
   <!-- ========== DAY 3 ========== -->
-  <div class="day-section" id="day3">
-    <div class="day-header">
-      <span class="day-badge">DAY 3</span>
-      <div><div class="day-title">中城公園 + 青洞浮潛 + 水族館</div><div class="day-date">2026年6月30日（週二）</div></div>
+  <div class="trip-card" id="day3">
+    <div class="trip-card-header">
+      <div class="trip-day-badge" style="background: var(--accent);">
+        <span class="day">DAY</span>
+        <span class="day">3</span>
+        <span class="date">6/30</span>
+      </div>
+      <div class="trip-card-title">
+        <h2>🌊 中城公園 + 青洞浮潛 + 水族館</h2>
+        <p class="subtitle">週二 · 北部探索，揪團浮潛日</p>
+      </div>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <span class="time-tag">08:00 - 09:00</span>
-        <h3>🍳 早餐：飯店 / 便利商店</h3>
-        <p>建議在飯店或路上便利商店快速解決，節省時間。</p>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">09:30 - 11:30</span>
-        <h3>🛝 中城公園（琉球王國最大特色兒童公園）</h3>
-        <p>沖繩最大型特色公園，榮獲「小學生最愛公園」第一名！擁有6座溜滑梯、彈跳床、巨大網狀設施。2025年翻新改裝。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-nakagusuku.png" alt="中城公園">
-        <p class="img-credit">📷 OpenStreetMap（中城公園）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/4pQmLkN9p3qMnMm73" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/4pQmLkN9p3qMnMm73" target="_blank">📍 Google Maps</a>
-        </div>
-        <div class="note-box">📌 建議帶備用衣物更換。</div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">12:00 - 13:00</span>
-        <h3>🍜 午餐：水族館附近餐廳</h3>
-        <p>在水族館附近享用沖繩料理。建議提前預約。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-aquarium.png" alt="美ら海水族館附近">
-        <p class="img-credit">📷 OpenStreetMap（水族館附近）</p>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">14:00 - 16:00</span>
-        <h3>🤿 青洞浮潛（Blue Cave Snorkeling）⭐揪團報名</h3>
-        <p>16人團體預約青洞浮潛！由專業教練帶領，探索夢幻藍洞。兒童年齡4-11歲皆可參加。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-bluecave.png" alt="青洞">
-        <p class="img-credit">📷 OpenStreetMap（青洞）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/5pQmLkN9p3qMnMm68" target="_blank">📸 網友照片</a>
-          <a class="btn" href="https://www.cerulean-blue.co.jp/en/blue-cave" target="_blank">🤿 Cerulean Blue（英文預約）</a>
-          <a class="btn" href="https://www.viator.com/tours/Onna-son/Blue-cave-snorkel/d50489-131960P1" target="_blank">📱 Viator 英文預約</a>
-        </div>
-        <div class="note-box">📌 <strong>需提前預約！</strong>建議揪團一起報名，16人可包團。4歲以上即可參加，記得帶泳衣，毛巾，防曬。</div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">16:30 - 18:00</span>
-        <h3>🐬 美ら海水族館（北部）</h3>
-        <p>聞名全球的超大珊瑚礁和黑潮之海水族箱，親子必訪！</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-aquarium.png" alt="美ら海水族館">
-        <p class="img-credit">📷 OpenStreetMap（美ら海水族館）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/2pQmLkN9p3qMnMm69" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/2pQmLkN9p3qMnMm69" target="_blank">📍 Google Maps</a>
-          <a class="btn" href="https://oki-churaumi.jp/" target="_blank">🐬 水族館官網</a>
+    <div class="trip-card-body">
+      <div class="schedule-item">
+        <div class="time">08:00</div>
+        <div class="schedule-content">
+          <h3>🍳 早餐：飯店 / 便利商店</h3>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">18:30 - 20:00</span>
-        <h3>🍽️ 晚餐：北部在地餐廳 / 海葡萄定食</h3>
-        <p>品嚐沖繩北部特色料理，海葡萄是必吃！</p>
-      </div>
-
-      <div class="timeline-item rest">
-        <span class="time-tag">21:00</span>
-        <h3>🛏️ BEB5 休息</h3>
-        <p>豐富的一天，早點休息！</p>
-      </div>
-
-      <!-- 備案 -->
-      <div class="timeline-item backup">
-        <span class="time-tag backup">📋 備案</span>
-        <h3>🌉 如果浮潛累了 → 古宇利島沙灘</h3>
-        <p>可以改去古宇利島看夕陽、踏踏海水輕鬆一下。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-kouri.png" alt="古宇利島">
-        <p class="img-credit">📷 OpenStreetMap（古宇利島）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/3rQmNkM9p3oLnNn70" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/3rQmNkM9p3oLnNn70" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">09:30</div>
+        <div class="schedule-content">
+          <h3>🛝 中城公園</h3>
+          <p>琉球王國最大特色兒童公園！擁有 6 座溜滑梯、彈跳床、巨大網狀設施。2025 年翻新改裝。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-nakagusuku.png" alt="中城公園">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/4pQmLkN9p3qMnMm73" target="_blank">📍 地圖</a>
+          </div>
+          <div class="tag" style="margin-top:8px;">👟 建議帶備用衣物更換</div>
         </div>
       </div>
-
+      <div class="schedule-item">
+        <div class="time">14:00</div>
+        <div class="schedule-content">
+          <h3>🤿 青洞浮潛 ⭐揪團報名</h3>
+          <p>16 人團體預約青洞浮潛！4-11 歲小朋友皆可參加。</p>
+          <div class="food-gallery" style="background: linear-gradient(135deg, #e3f2fd, #e8f5e9);">
+            <h4>🐠 行程特色</h4>
+            <div class="food-grid">
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80" alt="青洞">
+                <div class="food-item-info">
+                  <div class="food-item-name">💙 青洞</div>
+                  <div class="food-item-desc">夢幻藍洞</div>
+                </div>
+              </div>
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1551009175-8af9f3c2b555?w=400&q=80" alt="浮潛">
+                <div class="food-item-info">
+                  <div class="food-item-name">🤿 浮潛體驗</div>
+                  <div class="food-item-desc">專業教練帶領</div>
+                </div>
+              </div>
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80" alt="海灘">
+                <div class="food-item-info">
+                  <div class="food-item-name">🏖️ 恩納村</div>
+                  <div class="food-item-desc">美麗海域</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-container" style="margin-top:16px;">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-bluecave.png" alt="青洞">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-accent" href="https://www.cerulean-blue.co.jp/en/blue-cave" target="_blank">🤿 Cerulean Blue</a>
+            <a class="btn btn-primary" href="https://www.viator.com/tours/Onna-son/Blue-cave-snorkel/d50489-131960P1" target="_blank">📱 Viator 預約</a>
+          </div>
+          <div class="tag" style="margin-top:8px;">⚠️ 需提前預約，16 人可包團，4 歲以上可參加</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="time">16:30</div>
+        <div class="schedule-content">
+          <h3>🐬 美ら海水族館</h3>
+          <p>聞名全球的超大珊瑚礁和黑潮之海水族箱，親子必訪！</p>
+          <div class="food-gallery">
+            <h4>🐬 水族館亮點</h4>
+            <div class="food-grid">
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1550914706-1e1b77a53d8f?w=400&q=80" alt="黑潮水槽">
+                <div class="food-item-info">
+                  <div class="food-item-name">🦈 黑潮水槽</div>
+                  <div class="food-item-desc">世界最大之一</div>
+                </div>
+              </div>
+              <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80" alt="鯨鯊">
+                <div class="food-item-info">
+                  <div class="food-item-name">🐋 鯨鯊</div>
+                  <div class="food-item-desc">鎮館之寶</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-container" style="margin-top:16px;">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-aquarium.png" alt="美ら海水族館">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/2pQmLkN9p3qMnMm69" target="_blank">📍 地圖</a>
+            <a class="btn btn-primary" href="https://oki-churaumi.jp/" target="_blank">🐬 官網</a>
+          </div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="time">18:30</div>
+        <div class="schedule-content">
+          <h3>🍽️ 晚餐：北部在地餐廳 / 海葡萄定食</h3>
+          <p>品嚐沖繩北部特色料理，海葡萄是必吃！</p>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="time">21:00</div>
+        <div class="schedule-content">
+          <h3>🛏️ BEB5 休息</h3>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="section-divider"><span>～ DAY 4 恩納村・中部 ～</span></div>
 
   <!-- ========== DAY 4 ========== -->
-  <div class="day-section" id="day4">
-    <div class="day-header">
-      <span class="day-badge">DAY 4</span>
-      <div><div class="day-title">海灘活動 + 浦添大公園（超長溜滑梯）</div><div class="day-date">2026年7月1日（週三）</div></div>
+  <div class="trip-card" id="day4">
+    <div class="trip-card-header">
+      <div class="trip-day-badge">
+        <span class="day">DAY</span>
+        <span class="day">4</span>
+        <span class="date">7/1</span>
+      </div>
+      <div class="trip-card-title">
+        <h2>🏖️ 海灘活動 + 浦添大公園</h2>
+        <p class="subtitle">週三 · 恩納村海灘 + 超長溜滑梯</p>
+      </div>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <span class="time-tag">08:00 - 09:00</span>
-        <h3>🍳 早餐：飯店 / 便利商店</h3>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">09:30 - 12:00</span>
-        <h3>🏖️ BEB5 海灘 / 恩納村海灘水上活動</h3>
-        <p>沙灘排球，香蕉船、SUP立式划槳、浮潛等（需自費）。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-beb5.png" alt="恩納村海灘">
-        <p class="img-credit">📷 OpenStreetMap（恩納村海灘）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 海灘地圖</a>
+    <div class="trip-card-body">
+      <div class="schedule-item">
+        <div class="time">09:30</div>
+        <div class="schedule-content">
+          <h3>🏖️ 恩納村海灘水上活動</h3>
+          <p>沙灘排球、香蕉船、SUP 立式划槳、浮潛等。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-beb5.png" alt="恩納村海灘">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/3kQZ8vLmKp1pNmN67" target="_blank">📍 海灘地圖</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">12:00 - 13:30</span>
-        <h3>🍜 午餐：恩納村海景餐廳</h3>
-        <p>海邊view餐廳，邊吃邊看海。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-manzamo.png" alt="恩納村">
-        <p class="img-credit">📷 OpenStreetMap（恩納村）</p>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">14:00 - 16:00</span>
-        <h3>🛝 浦添大公園（超長溜滑梯）</h3>
-        <p>以「滑索」和「超長溜滑梯」聞名！有日本最長的溜滑梯之一（長度約90公尺），小朋友會玩到不想走！</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-urasae.png" alt="浦添大公園">
-        <p class="img-credit">📷 OpenStreetMap（浦添大公園）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/6pQmPkM9p3qMnMm74" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/6pQmPkM9p3qMnMm74" target="_blank">📍 Google Maps</a>
-        </div>
-        <div class="note-box">📌 溜滑梯需要家長陪同或自行滑行，注意安全！</div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">16:30 - 18:00</span>
-        <h3>🛒 北谷町美國村逛街</h3>
-        <p>擁有摩天輪、AEON商場、夕陽海灘，是近年超人氣的打卡景點！</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-american.png" alt="美國村">
-        <p class="img-credit">📷 OpenStreetMap（美國村）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/7qQmQkN9p3pMnMm75" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/7qQmQkN9p3pMnMm75" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">14:00</div>
+        <div class="schedule-content">
+          <h3>🛝 浦添大公園（超長溜滑梯）</h3>
+          <p>日本最長的溜滑梯之一（長度約 90 公尺），小朋友玩到不想走！</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-urasae.png" alt="浦添大公園">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/6pQmPkM9p3qMnMm74" target="_blank">📍 地圖</a>
+          </div>
+          <div class="tag" style="margin-top:8px;">⚠️ 溜滑梯需家長陪同，注意安全</div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">18:30 - 20:00</span>
-        <h3>🍽️ 晚餐：美國村 / 港川外人住宅區</h3>
-        <p>港川外人住宅區有許多特色咖啡廳和餐廳，異國風情滿分！</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-american.png" alt="美國村周邊">
-        <p class="img-credit">📷 OpenStreetMap（美國村周邊）</p>
-      </div>
-
-      <div class="timeline-item rest">
-        <span class="time-tag">21:00</span>
-        <h3>🛏️ BEB5 休息</h3>
-      </div>
-
-      <!-- 備案 -->
-      <div class="timeline-item backup">
-        <span class="time-tag backup">📋 備案</span>
-        <h3>🛝 浦添大公園改為「BIOS之丘」</h3>
-        <p>大型戶外冒險主題樂園，有高空繩索、划船、DIY體驗等，適合小朋友放電！</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/8pQmRkN9p3qMnMm76" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/8pQmRkN9p3qMnMm76" target="_blank">📍 BIOS之丘地圖</a>
+      <div class="schedule-item">
+        <div class="time">16:30</div>
+        <div class="schedule-content">
+          <h3>🛒 北谷町美國村逛街</h3>
+          <p>摩天輪、AEON 商場、夕陽海灘。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-american.png" alt="美國村">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/7qQmQkN9p3pMnMm75" target="_blank">📍 地圖</a>
+          </div>
         </div>
       </div>
-
+      <div class="schedule-item">
+        <div class="time">18:30</div>
+        <div class="schedule-content">
+          <h3>🍽️ 晚餐：美國村 / 港川外人住宅區</h3>
+          <p>港川外人住宅區有許多特色咖啡廳和餐廳，異國風情滿分！</p>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="time">21:00</div>
+        <div class="schedule-content">
+          <h3>🛏️ BEB5 休息</h3>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="section-divider"><span>～ DAY 5 南部探索 ～</span></div>
 
   <!-- ========== DAY 5 ========== -->
-  <div class="day-section" id="day5">
-    <div class="day-header">
-      <span class="day-badge">DAY 5</span>
-      <div><div class="day-title">平和祈念公園 + 南部文化之旅</div><div class="day-date">2026年7月2日（週四）</div></div>
+  <div class="trip-card" id="day5">
+    <div class="trip-card-header">
+      <div class="trip-day-badge">
+        <span class="day">DAY</span>
+        <span class="day">5</span>
+        <span class="date">7/2</span>
+      </div>
+      <div class="trip-card-title">
+        <h2>🎡 平和祈念公園 + 南部文化之旅</h2>
+        <p class="subtitle">週四 · 全新設施 + 世界遺產</p>
+      </div>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <span class="time-tag">08:00 - 09:00</span>
-        <h3>🍳 早餐：飯店 / 便利商店</h3>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">09:30 - 11:30</span>
-        <h3>🛝 平和祈念公園（2025年6月全新設施）</h3>
-        <p>2025年6月全新OPEN的「タマゴ（蛋）」造型遊具！結合平和紀念館與超大型公園，是親子遊戲設施最新的公園！</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-peace.png" alt="平和祈念公園">
-        <p class="img-credit">📷 OpenStreetMap（平和祈念公園）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/9pQmSkN9p3pMnMm77" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/9pQmSkN9p3pMnMm77" target="_blank">📍 Google Maps</a>
-          <a class="btn" href="https://oki-park.jp/peace-memorial-park/" target="_blank">🏯 公園官網</a>
+    <div class="trip-card-body">
+      <div class="schedule-item">
+        <div class="time">09:30</div>
+        <div class="schedule-content">
+          <h3>🛝 平和祈念公園（2025年6月全新設施）</h3>
+          <p>全新「タマゴ（蛋）」造型遊具！結合平和紀念館與超大型公園。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-peace.png" alt="平和祈念公園">
+          </div>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/9pQmSkN9p3pMnMm77" target="_blank">📍 地圖</a>
+            <a class="btn btn-primary" href="https://oki-park.jp/peace-memorial-park/" target="_blank">🏯 官網</a>
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">12:00 - 13:30</span>
-        <h3>🍜 午餐：南部在地料理（沖繩料理）</h3>
-        <p>推薦：MIRAI-coffee（網美咖啡廳）或 浜屋拉麵。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-peace.png" alt="南部餐廳">
-        <p class="img-credit">📷 OpenStreetMap（南部）</p>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">14:00 - 16:00</span>
-        <h3>🏛️ 齋場御嶽（世界文化遺產）</h3>
-        <p>琉球王國祈願聖地，可感受琉球文化與自然能量！需爬一小段山路。</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/0qQmTkN9p3pMnMm78" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/0qQmTkN9p3pMnMm78" target="_blank">📍 Google Maps</a>
-        </div>
-        <div class="note-box">📌 需穿好走的鞋子，部分路段階梯較陡。</div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">16:30 - 18:00</span>
-        <h3>🛒 輕鬆逛街 / 伴手禮最後採購</h3>
-        <p>國際通或AEON Mall Rycom做最後購物。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-kokusai.png" alt="國際通">
-        <p class="img-credit">📷 OpenStreetMap（國際通）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">14:00</div>
+        <div class="schedule-content">
+          <h3>🏛️ 齋場御嶽（世界文化遺產）</h3>
+          <p>琉球王國祈願聖地，需爬一小段山路。</p>
+          <div class="action-bar">
+            <a class="btn btn-outline" href="https://maps.app.goo.gl/0qQmTkN9p3pMnMm78" target="_blank">📍 地圖</a>
+          </div>
+          <div class="tag" style="margin-top:8px;">👟 需穿好走的鞋子</div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">18:30 - 20:00</span>
-        <h3>🍽️ 最後晚餐：縣廳前站周邊</h3>
-        <p>建議吃焼肉琉球の牛（需提前預約）或暖暮拉麵。</p>
-        <div class="note-box">📌 建議提早預約！</div>
-      </div>
-
-      <div class="timeline-item rest">
-        <span class="time-tag">21:00</span>
-        <h3>🛏️ BEB5 休息</h3>
-        <p>最後一晚，早點休息準備明天回程。</p>
-      </div>
-
-      <!-- 備案 -->
-      <div class="timeline-item backup">
-        <span class="time-tag backup">📋 備案</span>
-        <h3>🛝 平和祈念公園改為「玉泉洞」</h3>
-        <p>日本最大琉球鐘乳石洞，婚禮、表演、染織DIY體驗一站滿足。</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/1qQmUkN9p3pMnMm79" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/1qQmUkN9p3pMnMm79" target="_blank">📍 玉泉洞地圖</a>
+      <div class="schedule-item">
+        <div class="time">18:30</div>
+        <div class="schedule-content">
+          <h3>🍽️ 最後晚餐：縣廳前站周邊</h3>
+          <p>建議吃焼肉琉球の牛（需提前預約）或暖暮拉麵。</p>
+          <div class="tag" style="margin-top:8px;">⚠️ 建議提早預約！</div>
         </div>
       </div>
-
+      <div class="schedule-item">
+        <div class="time">21:00</div>
+        <div class="schedule-content">
+          <h3>🛏️ BEB5 休息（最後一晚）</h3>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="section-divider"><span>～ DAY 6 回程 ～</span></div>
-
   <!-- ========== DAY 6 ========== -->
-  <div class="day-section" id="day6">
-    <div class="day-header">
-      <span class="day-badge">DAY 6</span>
-      <div><div class="day-title">退房 → 還車 → 回程</div><div class="day-date">2026年7月3日（週五）</div></div>
+  <div class="trip-card" id="day6">
+    <div class="trip-card-header">
+      <div class="trip-day-badge" style="background: #5f6368;">
+        <span class="day">DAY</span>
+        <span class="day">6</span>
+        <span class="date">7/3</span>
+      </div>
+      <div class="trip-card-title">
+        <h2>✈️ 退房 → 還車 → 回程</h2>
+        <p class="subtitle">週五 · 最後一天</p>
+      </div>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <span class="time-tag">08:00 - 09:00</span>
-        <h3>🍳 早餐：飯店 / 便利商店</h3>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">09:00 - 10:00</span>
-        <h3>🏨 BEB5 退房 & 寄放行李</h3>
-        <p>退房後可寄放行李在飯店，輕鬆最後逛逛。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-beb5.png" alt="BEB5">
-        <p class="img-credit">📷 OpenStreetMap（BEB5）</p>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">10:00 - 11:30</span>
-        <h3>🛒 最後購物 / 國際通巡禮</h3>
-        <p>補買伴手禮、唐吉訶德、Blue Seal冰淇淋。</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-kokusai.png" alt="國際通">
-        <p class="img-credit">📷 OpenStreetMap（國際通）</p>
-        <div class="link-row">
-          <a class="btn photo" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📸 網友照片</a>
-          <a class="btn map" href="https://maps.app.goo.gl/fJfJ7H5Tuuad2yE4A" target="_blank">📍 Google Maps</a>
+    <div class="trip-card-body">
+      <div class="schedule-item">
+        <div class="time">09:00</div>
+        <div class="schedule-content">
+          <h3>🏨 BEB5 退房 & 寄放行李</h3>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-beb5.png" alt="BEB5">
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">12:00 - 13:00</span>
-        <h3>🍜 午餐：牧志市場（最後一吃）</h3>
-        <p>再吃一次道地豬肉蛋飯糰或海鮮！</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-makishi.png" alt="牧志市場">
-        <p class="img-credit">📷 OpenStreetMap（牧志市場）</p>
-      </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">13:30</span>
-        <h3>🚗 DFS 還車</h3>
-        <p>請在13:30前抵達DFS還車，記得加滿油！</p>
-        <img class="spot-photo" src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-dfs.png" alt="DFS">
-        <p class="img-credit">📷 OpenStreetMap（DFS）</p>
-        <div class="link-row">
-          <a class="btn map" href="https://maps.app.goo.gl/J4kTLD9YvXo7pZa67" target="_blank">📍 Google Maps</a>
+      <div class="schedule-item">
+        <div class="time">10:00</div>
+        <div class="schedule-content">
+          <h3>🛒 最後購物 / 國際通巡禮</h3>
+          <p>補買伴手禮、唐吉訶德、Blue Seal 冰淇淋。</p>
+          <div class="map-container">
+            <img src="https://raw.githubusercontent.com/newnicket001-alt/okinawa-trip-2026/main/maps/osm-kokusai.png" alt="國際通">
+          </div>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <span class="time-tag">14:00</span>
-        <h3>✈️ 那霸機場 → 回台灣</h3>
-        <p>搭乘Yui-Rail至那霸機場出境，準備回台灣。</p>
-        <div class="note-box">📌 建議提前2小時到機場辦理登機。</div>
+      <div class="schedule-item">
+        <div class="time">12:00</div>
+        <div class="schedule-content">
+          <h3>🍜 午餐：牧志市場（最後一吃）</h3>
+          <p>再吃一次道地豬肉蛋飯糰！</p>
+        </div>
       </div>
-
+      <div class="schedule-item">
+        <div class="time">13:30</div>
+        <div class="schedule-content">
+          <h3>🚗 DFS 還車</h3>
+          <p>請在 13:30 前抵達 DFS 還車，記得加滿油！</p>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="time">14:00</div>
+        <div class="schedule-content">
+          <h3>✈️ 那霸機場 → 回台灣</h3>
+          <div class="tag" style="margin-top:8px;">⏰ 建議提前 2 小時到機場</div>
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
 
-<!-- 頁尾 -->
 <footer>
   <p>🌴 <a href="https://github.com/newnicket001-alt/okinawa-trip-2026" target="_blank">沖繩之旅 2026.6.28 - 7.3</a> | LC 家庭旅遊</p>
-  <p style="margin-top:8px;">👥 揪團：16人（含小朋友4-11歲）</p>
-  <p style="margin-top:8px;">📷 地圖來源：OpenStreetMap（文字正常顯示）</p>
-  <p style="margin-top:8px;">📅 最終更新：2026年4月</p>
-  <p style="margin-top:12px;">如需調整行程，請告訴我！</p>
+  <p>👥 揪團：16人（含小朋友 4-11 歲）</p>
+  <p>📅 2026 年 5 月</p>
+  <p style="margin-top:16px; font-size:0.85rem;">如需調整行程，請告訴我！</p>
 </footer>
 
 </body>
